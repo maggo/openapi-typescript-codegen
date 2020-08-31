@@ -44,13 +44,15 @@ export function getOperation(openApi: OpenApi, url: string, method: string, op: 
     // Parse the operation parameters (path, query, body, etc).
     if (op.parameters) {
         const parameters = getOperationParameters(openApi, op.parameters);
+        const newParameterNames = parameters.parameters.map(parameter => parameter.name);
+
         operation.imports.push(...parameters.imports);
-        operation.parameters.push(...parameters.parameters);
-        operation.parametersPath.push(...parameters.parametersPath);
-        operation.parametersQuery.push(...parameters.parametersQuery);
-        operation.parametersForm.push(...parameters.parametersForm);
-        operation.parametersHeader.push(...parameters.parametersHeader);
-        operation.parametersCookie.push(...parameters.parametersCookie);
+        operation.parameters = [...operation.parameters.filter(parameter => !newParameterNames.includes(parameter.name)), ...parameters.parameters];
+        operation.parametersPath = [...operation.parametersPath.filter(parameter => !newParameterNames.includes(parameter.name)), ...parameters.parametersPath];
+        operation.parametersQuery = [...operation.parametersQuery.filter(parameter => !newParameterNames.includes(parameter.name)), ...parameters.parametersQuery];
+        operation.parametersForm = [...operation.parametersForm.filter(parameter => !newParameterNames.includes(parameter.name)), ...parameters.parametersForm];
+        operation.parametersHeader = [...operation.parametersHeader.filter(parameter => !newParameterNames.includes(parameter.name)), ...parameters.parametersHeader];
+        operation.parametersCookie = [...operation.parametersCookie.filter(parameter => !newParameterNames.includes(parameter.name)), ...parameters.parametersCookie];
         operation.parametersBody = parameters.parametersBody;
     }
 
