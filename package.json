@@ -2,14 +2,14 @@
     "name": "@planetly-tech/openapi-typescript-codegen",
     "version": "0.4.11",
     "description": "NodeJS library that generates Typescript or Javascript clients based on the OpenAPI specification.",
-    "author": "Ferdi Koomen",
-    "homepage": "https://github.com/ferdikoomen/openapi-typescript-codegen",
+    "author": "Ferdi Koomen, .planetly",
+    "homepage": "https://github.com/planetly-tech/openapi-typescript-codegen",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ferdikoomen/openapi-typescript-codegen.git"
+        "url": "git+https://github.com/planetly-tech/openapi-typescript-codegen.git"
     },
     "bugs": {
-        "url": "https://github.com/ferdikoomen/openapi-typescript-codegen/issues"
+        "url": "https://github.com/planetly-tech/openapi-typescript-codegen/issues"
     },
     "license": "MIT",
     "keywords": [
@@ -30,6 +30,10 @@
         {
             "name": "Ferdi Koomen",
             "email": "info@madebyferdi.com"
+        },
+        {
+            "name": "Marco Kaul",
+            "email": "marco.kaul@planetly.org"
         }
     ],
     "main": "dist/index.js",
