@@ -14,7 +14,7 @@ export { OpenAPI } from './core/OpenAPI';
 {{#if enum}}
 export { {{{name}}} } from './models/{{{name}}}';
 {{else if enums}}
-export { {{{name}}} } from './models/{{{name}}}';
+export type { {{{name}}} } from './models/{{{name}}}';
 {{else}}
 export type { {{{name}}} } from './models/{{{name}}}';
 {{/if}}

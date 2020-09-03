@@ -10,26 +10,23 @@ export interface {{{name}}}{{>extends}} {
      * {{{description}}}
      */
     {{/if}}
-    {{>isReadOnly}}{{{name}}}{{>isRequired}}: {{>type parent=../name}};
+    {{>isReadOnly}}{{{name}}}{{>isRequired}}: {{>type}};
     {{/each}}
 }
 {{#if enums}}
 
-export namespace {{{name}}} {
-
-    {{#each enums}}
-    {{#if description}}
-    /**
-     * {{{description}}}
-     */
-    {{/if}}
-    export enum {{{name}}} {
-        {{#each enum}}
-        {{{name}}} = {{{value}}},
-        {{/each}}
-    }
-
+{{#each enums}}
+{{#if description}}
+/**
+    * {{{description}}}
+    */
+{{/if}}
+export enum {{{name}}} {
+    {{#each enum}}
+    {{{name}}} = {{{value}}},
     {{/each}}
-
 }
+
+{{/each}}
+
 {{/if}}

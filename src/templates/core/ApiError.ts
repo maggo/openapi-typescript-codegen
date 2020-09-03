@@ -22,17 +22,15 @@ export class ApiError extends Error {
     }
 }
 
-export namespace ApiError {
-    export enum Message {
-        BAD_REQUEST = 'Bad Request',
-        UNAUTHORIZED = 'Unauthorized',
-        FORBIDDEN = 'Forbidden',
-        NOT_FOUND = 'Not Found',
-        INTERNAL_SERVER_ERROR = 'Internal Server Error',
-        BAD_GATEWAY = 'Bad Gateway',
-        SERVICE_UNAVAILABLE = 'Service Unavailable',
-        GENERIC_ERROR = 'Generic Error',
-    }
+export enum Message {
+    BAD_REQUEST = 'Bad Request',
+    UNAUTHORIZED = 'Unauthorized',
+    FORBIDDEN = 'Forbidden',
+    NOT_FOUND = 'Not Found',
+    INTERNAL_SERVER_ERROR = 'Internal Server Error',
+    BAD_GATEWAY = 'Bad Gateway',
+    SERVICE_UNAVAILABLE = 'Service Unavailable',
+    GENERIC_ERROR = 'Generic Error',
 }
 
 /**
@@ -41,16 +39,16 @@ export namespace ApiError {
  */
 export function catchGenericError(result: Result): void {
     switch (result.status) {
-        case 400: throw new ApiError(result, ApiError.Message.BAD_REQUEST);
-        case 401: throw new ApiError(result, ApiError.Message.UNAUTHORIZED);
-        case 403: throw new ApiError(result, ApiError.Message.FORBIDDEN);
-        case 404: throw new ApiError(result, ApiError.Message.NOT_FOUND);
-        case 500: throw new ApiError(result, ApiError.Message.INTERNAL_SERVER_ERROR);
-        case 502: throw new ApiError(result, ApiError.Message.BAD_GATEWAY);
-        case 503: throw new ApiError(result, ApiError.Message.SERVICE_UNAVAILABLE);
+        case 400: throw new ApiError(result, Message.BAD_REQUEST);
+        case 401: throw new ApiError(result, Message.UNAUTHORIZED);
+        case 403: throw new ApiError(result, Message.FORBIDDEN);
+        case 404: throw new ApiError(result, Message.NOT_FOUND);
+        case 500: throw new ApiError(result, Message.INTERNAL_SERVER_ERROR);
+        case 502: throw new ApiError(result, Message.BAD_GATEWAY);
+        case 503: throw new ApiError(result, Message.SERVICE_UNAVAILABLE);
     }
 
     if (!isSuccess(result.status)) {
-        throw new ApiError(result, ApiError.Message.GENERIC_ERROR);
+        throw new ApiError(result, Message.GENERIC_ERROR);
     }
 }
