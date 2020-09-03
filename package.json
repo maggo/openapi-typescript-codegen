@@ -1,5 +1,5 @@
 {
-    "name": "openapi-typescript-codegen",
+    "name": "@planetly/openapi-typescript-codegen",
     "version": "0.4.11",
     "description": "NodeJS library that generates Typescript or Javascript clients based on the OpenAPI specification.",
     "author": "Ferdi Koomen",
@@ -43,6 +43,7 @@
         "src/templates/**/*.ts"
     ],
     "scripts": {
+        "prepare": "rollup --config",
         "clean": "rimraf ./dist ./test/result ./coverage ./samples/examples",
         "build": "rollup --config",
         "run": "node ./test/index.js",
